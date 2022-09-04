@@ -3,6 +3,7 @@ package dsasheet.arrays.medium;
 public class TrappingRainWater {
     public static void main(String[] args) {
         int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        System.out.println(trap(height));
         System.out.println(trap2(height));
     }
 
@@ -12,23 +13,18 @@ public class TrappingRainWater {
         int lMax = height[0];
         int rMax = height[r];
         int trap = 0;
-        int water, curr;
 
         while (l <= r) {
             if (lMax < rMax) {
-                curr = height[l];
-                lMax = Math.max(lMax, curr);
-                water = Math.min(lMax, rMax) - curr;
+                lMax = Math.max(lMax, height[l]);
+                trap += lMax - height[l];
                 l++;
             } else {
-                curr = height[r];
-                rMax = Math.max(rMax, curr);
-                water = Math.min(lMax, rMax) - curr;
+                rMax = Math.max(rMax, height[r]);
+                trap += rMax - height[r];
                 r--;
             }
-            trap += Math.max(water, 0);
         }
-
         return trap;
     }
 
