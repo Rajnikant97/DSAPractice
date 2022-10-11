@@ -1,4 +1,4 @@
-package leetcode.weekly_contest_312;
+package leetcode.contest.weekly_contest_312;
 
 public class LongestSubarrayWithMaximumBitwiseAND {
     public static void main(String[] args) {
